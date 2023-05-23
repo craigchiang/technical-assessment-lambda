@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  python3.9
+
+  SAM Template for Gaggle lambda calculate stats  
+  
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+
+Resources:
+  CalculateStatsApiGateway:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Name: Calculate Stats Api Gateway
+      StageName: Prod
+
+  CalculateStatsFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: calculateStats/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Events:
+        GetStats:
+          Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            ApiId: !Ref CalculateStatsApiGateway
+            Path: /calculate
+            Method: get
+            PayloadFormatVersion: "1.0"
+        PostStats:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref CalculateStatsApiGateway
+            Path: /calculate
+            Method: post
+            PayloadFormatVersion: "1.0"
+
+Outputs:
+  HttpApiId:
+    Description: Api id of CalculateStatsApiGateway
+    Value:
+      Ref: CalculateStatsApiGateway
+  CalculateStatsApi:
+    Description: API Gateway endpoint URL for Prod stage for calculate stats function
+    Value: !Sub "https://${CalculateStatsApiGateway}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+  CalculateStatsFunction:
+    Description: Calculate stats Lambda Function ARN
+    Value: !GetAtt CalculateStatsFunction.Arn
+  CalculateStatsFunctionIamRole:
+    Description: Implicit IAM Role created for calculate stats function
+    Value: !GetAtt CalculateStatsFunctionRole.Arn

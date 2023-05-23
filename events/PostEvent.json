@@ -1,0 +1,91 @@
+{
+    "version": "1.0",
+    "resource": "/calculate",
+    "path": "/Prod/calculate",
+    "httpMethod": "POST",
+    "headers": {
+        "Content-Length": "58",
+        "Content-Type": "application/json",
+        "Host": "993dqpmaw2.execute-api.us-east-2.amazonaws.com",
+        "Postman-Token": "b2524baf-1a9a-4872-bc7c-71dbda326c01",
+        "User-Agent": "PostmanRuntime/7.32.2",
+        "X-Amzn-Trace-Id": "Root=1-646c29a0-5b0d0f87075488eb7fba039e",
+        "X-Forwarded-For": "99.43.84.152",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br"
+    },
+    "multiValueHeaders": {
+        "Content-Length": [
+            "58"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "993dqpmaw2.execute-api.us-east-2.amazonaws.com"
+        ],
+        "Postman-Token": [
+            "b2524baf-1a9a-4872-bc7c-71dbda326c01"
+        ],
+        "User-Agent": [
+            "PostmanRuntime/7.32.2"
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-646c29a0-5b0d0f87075488eb7fba039e"
+        ],
+        "X-Forwarded-For": [
+            "99.43.84.152"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ],
+        "accept": [
+            "*/*"
+        ],
+        "accept-encoding": [
+            "gzip, deflate, br"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "requestContext": {
+        "accountId": "332914343642",
+        "apiId": "993dqpmaw2",
+        "domainName": "993dqpmaw2.execute-api.us-east-2.amazonaws.com",
+        "domainPrefix": "993dqpmaw2",
+        "extendedRequestId": "FWtxFiA_CYcEQMQ=",
+        "httpMethod": "POST",
+        "identity": {
+            "accessKey": null,
+            "accountId": null,
+            "caller": null,
+            "cognitoAmr": null,
+            "cognitoAuthenticationProvider": null,
+            "cognitoAuthenticationType": null,
+            "cognitoIdentityId": null,
+            "cognitoIdentityPoolId": null,
+            "principalOrgId": null,
+            "sourceIp": "99.43.84.152",
+            "user": null,
+            "userAgent": "PostmanRuntime/7.32.2",
+            "userArn": null
+        },
+        "path": "/Prod/calculate",
+        "protocol": "HTTP/1.1",
+        "requestId": "FWtxFiA_CYcEQMQ=",
+        "requestTime": "23/May/2023:02:49:04 +0000",
+        "requestTimeEpoch": 1684810144237,
+        "resourceId": "POST /calculate",
+        "resourcePath": "/calculate",
+        "stage": "Prod"
+    },
+    "pathParameters": null,
+    "stageVariables": null,
+    "body": "{\n    \"numbers\": [\n        1,\n        2,\n        3\n    ]\n}",
+    "isBase64Encoded": false
+}
