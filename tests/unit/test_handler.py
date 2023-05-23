@@ -109,7 +109,6 @@ def apigw_event():
 def test_lambda_handler(apigw_event, mocker):
 
     ret = app.lambda_handler(apigw_event, "")
-    data = json.loads(ret["body"])
 
     assert ret["statusCode"] == 200
     assert ret["body"] == "{\"mean\": 1.75, \"median\": 1.5, \"mode\": 1}"

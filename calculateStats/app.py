@@ -26,7 +26,19 @@ def lambda_handler(event, context):
             'statusCode': 400,
             'body': 'Invalid input. Please provide an array of integers.'
         }
-    
+    except TypeError as e:
+        logger.error(traceback.format_exc())
+        return {
+            'statusCode': 400,
+            'body': 'Invalid input. Please format Json correctly.'
+        }
+    except Except as e:
+        logger.error(traceback.format_exc())
+        return {
+            'statusCode': 400,
+            'body': 'Bad request.'
+        }
+        
     calculate_stats(numbers, outputDict)
         
     return {
