@@ -13,7 +13,9 @@ def lambda_handler(event, context):
     outputDict = {}
     
     try: 
+        # keeping the 2 methods together considering low traffic app would have a higher chance of warm start on Lambda
         if event['httpMethod'] == 'GET':
+            # if non-integer type getting passed in, it will also raise valueError
             numbers = list(map(int, event['multiValueQueryStringParameters']['numbers']))
         elif event['httpMethod'] == 'POST':
             numbers = json.loads(event['body'])['numbers']
@@ -38,7 +40,7 @@ def lambda_handler(event, context):
             'statusCode': 400,
             'body': 'Bad request.'
         }
-        
+
     calculate_stats(numbers, outputDict)
         
     return {
